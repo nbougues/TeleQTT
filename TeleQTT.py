@@ -75,10 +75,6 @@ try:
         line = ti.read()
         if line is not None:
             for serEtiquette, serValue in line.items():
-                try:
-                    serValue = int(serValue)
-                except:
-                    pass
                 mqttc.publish(options.mqtt_base_topic+serEtiquette, serValue)
 except (SerialException):
     print "Serial Exception"
